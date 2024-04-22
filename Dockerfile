@@ -34,9 +34,6 @@ COPY --from=client-builder /app/API/wwwroot ./wwwroot
 
 RUN dotnet restore
 
-# Run database migrations
-RUN dotnet ef database update
-
 RUN dotnet publish -c Release -o out
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0.2 AS runtime
